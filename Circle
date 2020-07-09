@@ -1,0 +1,6 @@
+range t from 0.0 to 2*pi() step 0.01 
+| extend x=cos(t)
+| extend y=sin(t) 
+|project x,y
+| sort by x asc // necessary, as KQL doesn't really make a scatterchart as expected
+| render scatterchart 
